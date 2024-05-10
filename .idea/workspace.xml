@@ -4,29 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce979c1c-4d5f-4715-9faa-ebcecedcd698" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SchedulingCS140.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Autoassociator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CourseArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimeTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ear-f-83.crs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ear-f-83.stu" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kfu-s-93.crs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kfu-s-93.stu" afterDir="false" />
+    <list default="true" id="ce979c1c-4d5f-4715-9faa-ebcecedcd698" name="Changes" comment="test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CourseArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CourseArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ear-f-83.crs" beforeDir="false" afterPath="$PROJECT_DIR$/ear-f-83.crs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ear-f-83.stu" beforeDir="false" afterPath="$PROJECT_DIR$/ear-f-83.stu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kfu-s-93.crs" beforeDir="false" afterPath="$PROJECT_DIR$/kfu-s-93.crs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kfu-s-93.stu" beforeDir="false" afterPath="$PROJECT_DIR$/kfu-s-93.stu" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Pull.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="REBASE" />
+      </set>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2g0k92yA1eYDLINgV3twxEpsoMm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -34,14 +37,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -68,6 +72,44 @@
       <option name="presentableId" value="Default" />
       <updated>1714841727959</updated>
     </task>
+    <task id="LOCAL-00001" summary="Files selected, Continue Button added">
+      <created>1714844654417</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714844654417</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Files selected, Continue Button added">
+      <created>1714844938149</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714844938149</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test">
+      <created>1714844986090</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714844986090</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Files selected, Continue Button added" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
 </project>

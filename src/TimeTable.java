@@ -2,8 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-//TaronEdwardSchisas - 18 letters
-//ear-f-83(22slots), kfu-s-93(19slots)
 
 public class TimeTable extends JFrame implements ActionListener {
 
@@ -40,7 +38,6 @@ public class TimeTable extends JFrame implements ActionListener {
 			tools.add(new JLabel(capField[i]));
 			field[i] = new JTextField(5);
 			tools.add(field[i]);
-			System.out.println(123);
 		}
 		
 		for (int i = 0; i < tool.length; i++) {

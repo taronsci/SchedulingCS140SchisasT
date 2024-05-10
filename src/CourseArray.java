@@ -85,7 +85,12 @@ public class CourseArray {
 			}
 		}
 	}
-	
+	public int[] getTimeSlot(int index){
+		int[] ans = new int[]{1, 1};
+//		elements[index];
+
+		return ans;
+	}
 	public void printResult() {
 		for (int i = 1; i < elements.length; i++)
 			System.out.println(i + "\t" + elements[i].mySlot);
