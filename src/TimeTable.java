@@ -10,6 +10,7 @@ public class TimeTable extends JFrame implements ActionListener {
 	private JTextField field[];
 	private CourseArray courses;
 	private Color CRScolor[] = {Color.RED, Color.GREEN, Color.BLACK};
+	private Autoassociator a;
 	
 	public TimeTable() {
 		super("Dynamic Time Table");
@@ -46,10 +47,10 @@ public class TimeTable extends JFrame implements ActionListener {
 			tools.add(tool[i]);
 		}
 		
-		field[0].setText("22");
-		field[1].setText("190");
-		field[2].setText("ear-f-83.crs");
-		field[3].setText("10");
+		field[0].setText("19");
+		field[1].setText("461");
+		field[2].setText("kfu-s-93.crs");
+		field[3].setText("1");
 	}
 	
 	public void draw() {
