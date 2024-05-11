@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce979c1c-4d5f-4715-9faa-ebcecedcd698" name="Changes" comment="stuff">
+    <list default="true" id="ce979c1c-4d5f-4715-9faa-ebcecedcd698" name="Changes" comment="implemented Autoassociator class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Autoassociator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autoassociator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +45,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Autoassociator">
+  <component name="RunManager" selected="Application.TimeTable">
     <configuration name="Autoassociator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Autoassociator" />
       <module name="SchedulingCS140" />
@@ -124,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715373196946</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="implemented Autoassociator class">
+      <created>1715416276778</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715416276778</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,6 +153,7 @@
     <MESSAGE value="Completed Task2, Task3~" />
     <MESSAGE value="Added training(), getTrainingCapacity()and class constructor" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="implemented Autoassociator class" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented Autoassociator class" />
   </component>
 </project>

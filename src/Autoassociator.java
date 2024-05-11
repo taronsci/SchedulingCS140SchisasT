@@ -1,9 +1,8 @@
 import java.util.Arrays;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 public class Autoassociator {
-	private int weights[][];
+	private static int weights[][];
 	private int trainingCapacity;
 
 	public Autoassociator(CourseArray courses) {
@@ -41,7 +40,7 @@ public class Autoassociator {
 	 * Returns clone of weights matrix
 	 * @return
 	 */
-	public int[][] getWeights(){
+	public static int[][] getWeights(){
 		return weights.clone();
 	}
 
@@ -50,7 +49,7 @@ public class Autoassociator {
 	 * @param sum Sum(w_jk * x_j(t-1))
 	 * @return x_k(t)
 	 */
-	private int f_act(int sum){
+	private static int f_act(int sum){
 		return sum >= 0 ? 1: -1;
 	}
 
@@ -60,7 +59,7 @@ public class Autoassociator {
 	 * @param w_jk weights array
 	 * @return
 	 */
-	private int dotProduct(int[] x_j,int[] w_jk){
+	private static int dotProduct(int[] x_j,int[] w_jk){
 		int ans = 0;
 		for (int i = 0; i < x_j.length; i++) {
 			ans += x_j[i] * w_jk[i];
@@ -74,7 +73,7 @@ public class Autoassociator {
 	 * @param k column number
 	 * @return
 	 */
-	private int[] getColumn(int[][] w_jk, int k){
+	private static int[] getColumn(int[][] w_jk, int k){
 		return Arrays.stream(w_jk).mapToInt(ints -> ints[k]).toArray();
 	}
 
@@ -88,11 +87,32 @@ public class Autoassociator {
 		return index;
 	}
 
-	public void unitUpdate(int neurons[], int index) {
+	public static void unitUpdate(int neurons[], int index) {
 		// TO DO
 		// implements the update step of a single neuron specified by index
-		int sum = dotProduct(neurons,getColumn(getWeights(),index));
-		neurons[index] = f_act(sum);
+		int sum = dotProduct(neurons, getColumn(getWeights(),index));
+		if(neurons[index] != f_act(sum)) {
+			int a = neurons[index];
+
+			boolean change = false;
+			for(int i = 0;i < neurons.length;i++){
+				if(i == index)
+					continue;
+
+				if(neurons[i] != a)
+					if(f_act(dotProduct(neurons, getColumn(getWeights(),i))) == a) {
+						neurons[i] = a;
+						change = true;
+					}
+			}
+			if(!change)
+				if(index != 0)
+					neurons[0] = -neurons[0];
+				else
+					neurons[1] = -neurons[1];
+
+			neurons[index] = f_act(sum);
+		}
 	}
 
 	public void chainUpdate(int neurons[], int steps) {
@@ -115,8 +135,21 @@ public class Autoassociator {
 	public void fullUpdate(int neurons[]) {
 		// TO DO
 		// updates the input until the final state achieved
-		for(int i=0;i< neurons.length;i++)
-			unitUpdate(neurons,i);
+		for(int i = 0;i< neurons.length;i++)
+			unitUpdate(neurons, i);
 	}
 
+	/**
+	 * Prints first n rows and cols of the weights matrix
+	 * @param n
+	 */
+	public void printWeights(int n){
+		int[][] w= getWeights();
+
+		for(int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++)
+				System.out.print(w[i][j] + " ");
+			System.out.println();
+		}
+	}
 }
