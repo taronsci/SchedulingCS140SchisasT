@@ -119,11 +119,12 @@ public class CourseArray {
 		}
 			return ans;
 	}
-//	public void printTimeSlot(){
-//		int[] a = getTimeSlot(0);
+//	public void printTimeSlot(int index){
+//		int[] a = getTimeSlot(index);
 //		for(int i = 0;i < a.length;i++)
 //			System.out.println(i + "\t"+ a[i]);
 //	}
+
 	public void printResult() {
 		for (int i = 1; i < elements.length; i++)
 			System.out.println(i + "\t" + elements[i]);

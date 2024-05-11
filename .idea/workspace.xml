@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce979c1c-4d5f-4715-9faa-ebcecedcd698" name="Changes" comment="implemented Autoassociator class">
+    <list default="true" id="ce979c1c-4d5f-4715-9faa-ebcecedcd698" name="Changes" comment="fixed unitUpdate() method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Autoassociator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autoassociator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exam:Slot:Clashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Exam:Slot:Clashes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CourseArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CourseArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TimeTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +133,49 @@
       <option name="project" value="LOCAL" />
       <updated>1715416276778</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed unitUpdate method to keep consistency">
+      <created>1715428657809</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715428657809</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added training1 method to modify 11th time slot">
+      <created>1715428812698</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715428812698</updated>
+    </task>
+    <task id="LOCAL-00011" summary="ws">
+      <created>1715428835820</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715428835820</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added slotStatus method">
+      <created>1715435472799</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715435472799</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added printSlotStatus method">
+      <created>1715435808032</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715435808032</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fixed unitUpdate() method">
+      <created>1715450342569</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715450342569</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +197,12 @@
     <MESSAGE value="Added training(), getTrainingCapacity()and class constructor" />
     <MESSAGE value="stuff" />
     <MESSAGE value="implemented Autoassociator class" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented Autoassociator class" />
+    <MESSAGE value="Fixed unitUpdate method to keep consistency" />
+    <MESSAGE value="added training1 method to modify 11th time slot" />
+    <MESSAGE value="ws" />
+    <MESSAGE value="added slotStatus method" />
+    <MESSAGE value="added printSlotStatus method" />
+    <MESSAGE value="fixed unitUpdate() method" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed unitUpdate() method" />
   </component>
 </project>
