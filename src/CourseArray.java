@@ -98,6 +98,12 @@ public class CourseArray {
 			}
 		return result;
 	}
+	public void printSlotStatus(){
+		for(int i=0;i<period;i++) {
+			int[] a = slotStatus(i);
+			System.out.println(i+ " "+ a[0]+" "+ a[1]);
+		}
+	}
 	/**
 	 * Returns the specified Timeslot as an int array of -1 and 1 values.
 	 * @param index timeslot
