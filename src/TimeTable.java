@@ -109,11 +109,29 @@ public class TimeTable extends JFrame implements ActionListener {
 		case 4:
 			System.exit(0);
 		case 5:
-			//continue from current state
+			training1();
+			draw();
+			System.out.println("updated 11");
 		}
 
 	}
 
+	public void training1(){
+		a = new Autoassociator(courses);
+		for(int i = 0;i < a.getTrainingCapacity() / 2;i++){
+			if(i != 11 && i != 13)
+				a.training(courses.getTimeSlot(i));
+		}
+		for(int i = 0; i < a.getTrainingCapacity() / 4;i++){
+			if(i != 9 && i != 10 && i != 11 && i != 13)
+				a.training(courses.getTimeSlot(i));
+		}
+		for(int i = a.getTrainingCapacity() / 2; i < (a.getTrainingCapacity() / 2) + 22;i++){
+			a.training(courses.getTimeSlot(i));
+		}
+		a.printWeights(15);
+		a.unitUpdate(courses.getTimeSlot(11));
+	}
 	public static void main(String[] args) {
 		new TimeTable();
 	}
