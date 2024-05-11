@@ -4,6 +4,7 @@ import java.util.Random;
 public class Autoassociator {
 	private static int weights[][];
 	private int trainingCapacity;
+	private CourseArray courses;
 
 	public Autoassociator(CourseArray courses) {
 		// TO DO
@@ -11,6 +12,7 @@ public class Autoassociator {
 		// as the number of courses in the input CourseArray
 		weights = new int[courses.length()][courses.length()];
 		trainingCapacity = (int) (courses.length() * 0.139);
+		this.courses = courses;
 	}
 
 	public int getTrainingCapacity() {
@@ -87,32 +89,43 @@ public class Autoassociator {
 		return index;
 	}
 
-	public static void unitUpdate(int neurons[], int index) {
+	public void unitUpdate(int neurons[], int index) {
 		// TO DO
 		// implements the update step of a single neuron specified by index
 		int sum = dotProduct(neurons, getColumn(getWeights(),index));
-		if(neurons[index] != f_act(sum)) {
-			int a = neurons[index];
+
+		if(neurons[index] != f_act(sum)) { //must update
+			System.out.println("Changed index "+ index+ " from "+ neurons[index] + " to "+ f_act(sum));
+			neurons[index] = f_act(sum); //update
+
+			int oldValue = -neurons[index];
+
+			//the change must happen not in the same timeslot but in a different time slot-same index
 
 			boolean change = false;
-			for(int i = 0;i < neurons.length;i++){
-				if(i == index)
-					continue;
+			for(int i = 0;i < neurons.length; i++){
+				neurons = courses.getTimeSlot(i);
 
-				if(neurons[i] != a)
-					if(f_act(dotProduct(neurons, getColumn(getWeights(),i))) == a) {
-						neurons[i] = a;
+				if(neurons[index] != oldValue) //then i can change
+					if(f_act(dotProduct(neurons, getColumn(getWeights(),index))) == oldValue) { //then i change
+						neurons[index] = oldValue;
 						change = true;
+						System.out.println("converted time slot " + i + "'s index "+ index + " value from "+ -oldValue + " to "+ oldValue);
+						break;
 					}
 			}
-			if(!change)
-				if(index != 0)
-					neurons[0] = -neurons[0];
-				else
-					neurons[1] = -neurons[1];
-
-			neurons[index] = f_act(sum);
+			//change must have happened?
+//			if(!change) //change has not been made
+//				if(index != 0) {
+//					neurons[0] = -neurons[0];
+//					System.out.println("converted index " + 0 + " from "+ -oldValue + " to "+ oldValue);
+//				}else {
+//					neurons[1] = -neurons[1];
+//					System.out.println("converted index " + 1 + " from "+ -oldValue + " to "+ oldValue);
+//				}
 		}
+		else
+			System.out.println("network says force in index should stay the same");
 	}
 
 	public void chainUpdate(int neurons[], int steps) {
@@ -135,8 +148,9 @@ public class Autoassociator {
 	public void fullUpdate(int neurons[]) {
 		// TO DO
 		// updates the input until the final state achieved
-		for(int i = 0;i< neurons.length;i++)
+		for(int i = 0;i < neurons.length; i++) {
 			unitUpdate(neurons, i);
+		}
 	}
 
 	/**
