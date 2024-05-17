@@ -1,3 +1,5 @@
+            Used wrong files for this one
+
 For file "ear-f-83.crs" 4 slots, 1 iteration, 4 shifts we get 0 clashes at step 1.
 
 

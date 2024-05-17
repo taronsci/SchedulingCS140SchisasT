@@ -7,16 +7,12 @@ public class Autoassociator {
 	private CourseArray courses;
 
 	public Autoassociator(CourseArray courses) {
-		// TO DO
-		// creates a new Hopfield network with the same number of neurons
-		// as the number of courses in the input CourseArray
 		weights = new int[courses.length()][courses.length()];
 		trainingCapacity = (int) (courses.length() * 0.139);
 		this.courses = courses;
 	}
 
 	public int getTrainingCapacity() {
-		// TO DO
 		return trainingCapacity;
 	}
 
@@ -24,8 +20,7 @@ public class Autoassociator {
 	 * Trains Hopfield network using the given pattern
 	 * @param pattern
 	 */
-	public void training(int pattern[]) {
-		// TO DO, pattern = getTimeSlot()
+	public void training(int[] pattern) {
 		for(int i = 0; i < weights.length; i++){
 			for(int j = 0; j < weights.length; j++){
 				if(i == j)
@@ -80,17 +75,11 @@ public class Autoassociator {
 	}
 
 	public int unitUpdate(int slot) {
-		// TO DO
-		// implements a single update step and
-		// returns the index of the randomly selected and updated neuron
 		Random rand = new Random();
-//		int[] neurons = courses.getTimeSlot(slot);
 		int index = rand.nextInt(weights.length);
 		unitUpdate(slot,index);
 		return index;
 	}
-	// TO DO
-	// implements the update step of a single neuron specified by index
 	public void unitUpdate(int slot, int index) {
 		int[] neurons = courses.getTimeSlot(slot);
 		int sum = dotProduct(neurons, getColumn(getWeights(),index));
@@ -103,19 +92,20 @@ public class Autoassociator {
 				return;
 			}
 
-			//the change must happen not in the same timeslot but in a different time slot-same index
-			for(int i = 0;i < neurons.length; i++){ //tried updating using Network
+			//try updating using Network
+			for(int i = 0;i < neurons.length; i++){
 				if(i == slot)
 					continue;
 				neurons = courses.getTimeSlot(i);
 
-				if(f_act(dotProduct(neurons, getColumn(getWeights(),index))) == 1) { //then i change
+				if(f_act(dotProduct(neurons, getColumn(getWeights(),index))) == 1) {
 					courses.setSlot(index, i);
 					System.out.println("Using Network moved course "+ index +" to slot "+i);
 					return;
 				}
 			}
 
+			//turning 1 into -1. Picking which slot to turn to 1
 			//if Network doesn't help, we update by selecting slot randomly
 			Random rand = new Random();
 			while(true){
@@ -127,14 +117,11 @@ public class Autoassociator {
 				}
 			}
 		}
-		else
-			System.out.println("network says force in index should stay the same");
+//		else
+//			System.out.println("network says force in index should stay the same");
 	}
 
 	public void chainUpdate(int slot, int steps) {
-		// TO DO
-		// implements the specified number od update steps
-
 		boolean[] updated = new boolean[weights.length];
 		int index;
 
@@ -150,8 +137,6 @@ public class Autoassociator {
 	}
 
 	public void fullUpdate(int slot) {
-		// TO DO
-		// updates the input until the final state achieved
 		for(int i = 0;i < weights.length; i++) {
 			unitUpdate(slot, i);
 		}
@@ -166,7 +151,7 @@ public class Autoassociator {
 
 		for(int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++)
-				System.out.print(w[i][j] + " ");
+				System.out.print(w[i][j] + ", ");
 			System.out.println();
 		}
 	}

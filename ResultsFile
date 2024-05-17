@@ -1,0 +1,59 @@
+    File ear-f-83:
+Shift = 13	Min clashes = 28 at step 610
+Shift = 19	Min clashes = 20 at step 1445
+Shift = 21	Min clashes = 30 at step 842
+
+0.139 * 190 = 26.41 => m = 26
+190 courses
+>9 courses in timeslot, 0-2 clashes
+
+22slots:
+Shift = 19	Min clashes = 20 at step 1445
+training slots: 1,4,6,7,8,17,18,20,21 - 9
+
+Shift = 13	Min clashes = 28	at step 610
+training slots: 2,4,11,13,15,19 - 6
+
+Shift = 21	Min clashes = 30	at step 842
+training slots: 0,1,5,6,7,8,10,11,12,21 - 10
+
+After training with this data and doing fullUpdate(), all the changes from 1 to -1 are random.
+
+    File kfu-s-93:
+Shift = 10	Min clashes = 78	at step 198
+Shift = 12	Min clashes = 62	at step 98
+Shift = 13	Min clashes = 68	at step 1990
+Shift = 16	Min clashes = 60	at step 30
+Shift = 18	Min clashes = 44	at step 22
+Shift = 17	Min clashes = 42	at step 826
+Shift = 15	Min clashes = 44	at step 1575
+Shift = 14	Min clashes = 26	at step 1192
+
+0.139 * 461 = 64.079 => m = 64
+461 courses
+>20 courses in timeslot, 0-2 clashes
+
+Shift = 14	Min clashes = 26	at step 1192
+training slots: 0,1,2,3,4,5,10,11,15,16  - 10
+
+Shift = 15 Min clashes = 44 at step 1575
+training slots: 1,2,3,12,14,16,18 - 7
+
+Shift = 17	Min clashes = 42	at step 826
+training slots: 0,1,2,3,10,11,13,15,18 - 9
+
+Shift = 18	Min clashes = 44	at step 22
+training slots: 0,1,3,5,10,12,15,18 - 8
+
+Shift = 16	Min clashes = 60	at step 30
+training slots: 0,2,5,8,16  - 5
+
+Shift = 13	Min clashes = 68	at step 1990
+training slots: 0,1,2,4,6,7,10,16 - 8
+
+Shift = 12	Min clashes = 62	at step 98
+training slots: 0,2,3,4,5,6,10,12,14 - 9
+
+Shift = 10	Min clashes = 78	at step 198
+training slots: 1,2,4,10,11 - 5
+

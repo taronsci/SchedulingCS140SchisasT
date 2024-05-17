@@ -12,6 +12,8 @@ public class TimeTable extends JFrame implements ActionListener {
 	private CourseArray courses;
 	private Color CRScolor[] = {Color.RED, Color.GREEN, Color.BLACK};
 	private Autoassociator a;
+	public int count = 0;
+
 
 	public TimeTable() {
 		super("Dynamic Time Table");
@@ -48,9 +50,9 @@ public class TimeTable extends JFrame implements ActionListener {
 			tools.add(tool[i]);
 		}
 
-		field[0].setText("19");
-		field[1].setText("461");
-		field[2].setText("kfu-s-93.crs");
+		field[0].setText("22"); //19
+		field[1].setText("190"); //461
+		field[2].setText("ear-f-83.stu"); //kfu-s-93.stu
 		field[3].setText("1");
 	}
 
@@ -73,7 +75,6 @@ public class TimeTable extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent click) {
 		int min, step, clashes;
-
 		switch (getButtonIndex((JButton) click.getSource())) {
 			case 0:
 				int slots = Integer.parseInt(field[0].getText());
@@ -105,48 +106,50 @@ public class TimeTable extends JFrame implements ActionListener {
 			case 3:
 				courses.printSlotStatus();
 				System.out.println();
-				System.out.println("Exam\tSlot\tClashes");
-				for (int i = 1; i < courses.length(); i++)
-					System.out.println(i + "\t" + courses.slot(i) + "\t" + courses.status(i));
+//				System.out.println("Exam\tSlot\tClashes");
+//				for (int i = 1; i < courses.length(); i++)
+//					System.out.println(i + "\t" + courses.slot(i) + "\t" + courses.status(i));
 				break;
 			case 4:
 				System.exit(0);
 			case 5:
-				Random rand = new Random();
-				int index = rand.nextInt(Integer.parseInt(field[1].getText()));
-				int slot;// = rand.nextInt(Integer.parseInt(field[0].getText()));
-
-				//18slots, 461courses, 1iter, 4shifts
-				courses.iterate(Integer.parseInt(field[4].getText()));
-				a.unitUpdate(0,11);
-				slot = rand.nextInt(Integer.parseInt(field[0].getText()));
-				a.unitUpdate(0,13);
-//				a.unitUpdate(0,30);
-//				a.unitUpdate(0,80);
-//				a.unitUpdate(0,106);
-//				a.unitUpdate(0,120);
-//				a.unitUpdate(0,128);
+//				Random rand = new Random();
+//				int index = rand.nextInt(Integer.parseInt(field[1].getText()));
+//				int slot = rand.nextInt(Integer.parseInt(field[0].getText()));
+				for (int i = 0; i < 22; i++) {
+					a.fullUpdate(i);
+				}
 
 				draw();
 			case 6:
-				training1();
+				trainingEAR();
 		}
 
 	}
 
-	public void training1(){
-		a = new Autoassociator(courses);
+	public void trainingEAR(){
+		//19-1445, 13-610, 21-842
+		if(a == null)
+			a = new Autoassociator(courses);
 
-		for(int i = 0;i < a.getTrainingCapacity() / 2;i++){
-			if(i != 11 && i != 13)
+		if(count == 0) {
+			int[] tr20 = {1, 4, 6, 7, 8, 17, 18, 20, 21};
+			for (int i : tr20)
 				a.training(courses.getTimeSlot(i));
-		}
-		for(int i = 0; i < a.getTrainingCapacity() / 4;i++){
-			if(i != 9 && i != 10 && i != 11 && i != 13)
+			count++;
+			a.printWeights(10);
+		}else if(count == 1){
+			int[] tr20 = {2,4,11,13,15,19};
+			for (int i : tr20)
 				a.training(courses.getTimeSlot(i));
-		}
-		for(int i = a.getTrainingCapacity() / 2; i < (a.getTrainingCapacity() / 2) + 22;i++){
-			a.training(courses.getTimeSlot(i));
+			count++;
+			a.printWeights(10);
+		}else if(count == 2){
+			int[] tr20 = {0,1,5,6,7,8,10,11,12,21};
+			for (int i : tr20)
+				a.training(courses.getTimeSlot(i));
+			count++;
+			a.printWeights(10);
 		}
 	}
 
