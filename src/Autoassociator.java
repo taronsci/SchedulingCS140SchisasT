@@ -79,77 +79,81 @@ public class Autoassociator {
 		return Arrays.stream(w_jk).mapToInt(ints -> ints[k]).toArray();
 	}
 
-	public int unitUpdate(int neurons[]) {
+	public int unitUpdate(int slot) {
 		// TO DO
 		// implements a single update step and
 		// returns the index of the randomly selected and updated neuron
 		Random rand = new Random();
-		int index = rand.nextInt(neurons.length);
-		unitUpdate(neurons,index);
+//		int[] neurons = courses.getTimeSlot(slot);
+		int index = rand.nextInt(weights.length);
+		unitUpdate(slot,index);
 		return index;
 	}
-
-	public void unitUpdate(int neurons[], int index) {
-		// TO DO
-		// implements the update step of a single neuron specified by index
+	// TO DO
+	// implements the update step of a single neuron specified by index
+	public void unitUpdate(int slot, int index) {
+		int[] neurons = courses.getTimeSlot(slot);
 		int sum = dotProduct(neurons, getColumn(getWeights(),index));
 
 		if(neurons[index] != f_act(sum)) { //must update
-			System.out.println("Changed index "+ index+ " from "+ neurons[index] + " to "+ f_act(sum));
-			neurons[index] = f_act(sum); //update
 
-			int oldValue = -neurons[index];
+			if(neurons[index] == -1){
+				courses.setSlot(index, slot);
+				System.out.println("Moved course "+ index +" to slot "+slot);
+				return;
+			}
 
 			//the change must happen not in the same timeslot but in a different time slot-same index
-
-			boolean change = false;
-			for(int i = 0;i < neurons.length; i++){
+			for(int i = 0;i < neurons.length; i++){ //tried updating using Network
+				if(i == slot)
+					continue;
 				neurons = courses.getTimeSlot(i);
 
-				if(neurons[index] != oldValue) //then i can change
-					if(f_act(dotProduct(neurons, getColumn(getWeights(),index))) == oldValue) { //then i change
-						neurons[index] = oldValue;
-						change = true;
-						System.out.println("converted time slot " + i + "'s index "+ index + " value from "+ -oldValue + " to "+ oldValue);
-						break;
-					}
+				if(f_act(dotProduct(neurons, getColumn(getWeights(),index))) == 1) { //then i change
+					courses.setSlot(index, i);
+					System.out.println("Using Network moved course "+ index +" to slot "+i);
+					return;
+				}
 			}
-			//change must have happened?
-//			if(!change) //change has not been made
-//				if(index != 0) {
-//					neurons[0] = -neurons[0];
-//					System.out.println("converted index " + 0 + " from "+ -oldValue + " to "+ oldValue);
-//				}else {
-//					neurons[1] = -neurons[1];
-//					System.out.println("converted index " + 1 + " from "+ -oldValue + " to "+ oldValue);
-//				}
+
+			//if Network doesn't help, we update by selecting slot randomly
+			Random rand = new Random();
+			while(true){
+				int randomSlot = rand.nextInt(neurons.length);
+				if (slot != randomSlot){
+					courses.setSlot(index, randomSlot);
+					System.out.println("Randomly moved course "+ index +" to slot "+randomSlot);
+					return;
+				}
+			}
 		}
 		else
 			System.out.println("network says force in index should stay the same");
 	}
 
-	public void chainUpdate(int neurons[], int steps) {
+	public void chainUpdate(int slot, int steps) {
 		// TO DO
 		// implements the specified number od update steps
-		boolean[] updated = new boolean[neurons.length];
+
+		boolean[] updated = new boolean[weights.length];
 		int index;
 
 		Random rand = new Random();
 		for(int i = 0;i < steps; i++){
-			index = rand.nextInt(neurons.length);
+			index = rand.nextInt(weights.length);
 			if(!updated[index]) {
-				unitUpdate(neurons, index);
+				unitUpdate(slot, index);
 				updated[index] = true;
 			}else
 				i--;
 		}
 	}
 
-	public void fullUpdate(int neurons[]) {
+	public void fullUpdate(int slot) {
 		// TO DO
 		// updates the input until the final state achieved
-		for(int i = 0;i < neurons.length; i++) {
-			unitUpdate(neurons, i);
+		for(int i = 0;i < weights.length; i++) {
+			unitUpdate(slot, i);
 		}
 	}
 

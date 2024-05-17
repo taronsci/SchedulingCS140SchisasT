@@ -3,7 +3,7 @@ import java.util.StringTokenizer;
 
 public class CourseArray {
 
-	private Course elements[];
+	private Course[] elements;
 	private int period;
 
 	public CourseArray(int numOfCourses, int numOfSlots) {
@@ -119,6 +119,7 @@ public class CourseArray {
 		}
 			return ans;
 	}
+
 //	public void printTimeSlot(int index){
 //		int[] a = getTimeSlot(index);
 //		for(int i = 0;i < a.length;i++)
