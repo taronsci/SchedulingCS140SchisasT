@@ -3,6 +3,10 @@ IMPORTANT: In class Autoassociator, line 112, change slot number to 22 when work
                                                                     19 when working with file "ear-f-83.stu"
 
 Observation: After training with the data and doing updates, all the changes happen randomly. These changes are from 1 to -1.
+Thus, to replicate results, a method to change values in specific slots must be used.
+
+Results: For "ear-f-83.stu" reduced min clashes from 20 to 16.
+             "kfu-s-93.stu" reduced min clashes from 26 to 24.
 
 
                                         File "ear-f-83.stu"
@@ -183,6 +187,10 @@ Randomly moved course 57 to slot 12
 Shift = 14	Min clashes = 26	at step 7
 /* Log */
 Randomly moved course 208 to slot 10
+
+Shift = 14	Min clashes = 24	at step 7                                           ------SUCCESS------
+/* Log */
+Randomly moved course 251 to slot 3
 
 /*      Results obtained by doing fullUpdate(8) and fullUpdate(12). Choice of slots is based on high number of clashes in them. 2000 iterations.   */
 Shift = 14	Min clashes = 44	at step 102

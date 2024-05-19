@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce979c1c-4d5f-4715-9faa-ebcecedcd698" name="Changes" comment="resultsFile changed">
-      <change afterPath="$PROJECT_DIR$/src/TrainingData/TrainingData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TrainingData/TrainingData2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TrainingData/TrainingData3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TrainingData/TrainingData4.java" afterDir="false" />
+    <list default="true" id="ce979c1c-4d5f-4715-9faa-ebcecedcd698" name="Changes" comment="changed training method, added cases to result file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exam:Slot:Clashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OldResultsFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ResultsFile" beforeDir="false" afterPath="$PROJECT_DIR$/ResultsFile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Autoassociator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autoassociator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TimeTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TrainingData/TrainingData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrainingData/TrainingData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TrainingData/TrainingData2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrainingData/TrainingData2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +222,21 @@
       <option name="project" value="LOCAL" />
       <updated>1715964136669</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="changed training method, added cases to result file">
+      <created>1716110711209</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716110711209</updated>
+    </task>
+    <task id="LOCAL-00021" summary="changed training method, added cases to result file">
+      <created>1716110730109</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1716110730109</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +268,7 @@
     <MESSAGE value="UnitUpdate method modified" />
     <MESSAGE value="results and conclusions" />
     <MESSAGE value="resultsFile changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="resultsFile changed" />
+    <MESSAGE value="changed training method, added cases to result file" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed training method, added cases to result file" />
   </component>
 </project>
