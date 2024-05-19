@@ -109,7 +109,7 @@ public class Autoassociator {
 			//if Network doesn't help, we update by selecting slot randomly
 			Random rand = new Random();
 			while(true){
-				int randomSlot = rand.nextInt(neurons.length);
+				int randomSlot = rand.nextInt(19); //change to the number of slots you are working with 22
 				if (slot != randomSlot){
 					courses.setSlot(index, randomSlot);
 					System.out.println("Randomly moved course "+ index +" to slot "+randomSlot);
@@ -117,8 +117,8 @@ public class Autoassociator {
 				}
 			}
 		}
-//		else
-//			System.out.println("network says force in index should stay the same");
+		else
+			System.out.println("network says force in index should stay the same");
 	}
 
 	public void chainUpdate(int slot, int steps) {

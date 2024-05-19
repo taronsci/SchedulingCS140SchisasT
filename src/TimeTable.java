@@ -1,6 +1,7 @@
+import TrainingData.*;
+
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Random;
 import javax.swing.*;
 
 
@@ -12,8 +13,6 @@ public class TimeTable extends JFrame implements ActionListener {
 	private CourseArray courses;
 	private Color CRScolor[] = {Color.RED, Color.GREEN, Color.BLACK};
 	private Autoassociator a;
-	public int count = 0;
-
 
 	public TimeTable() {
 		super("Dynamic Time Table");
@@ -50,9 +49,9 @@ public class TimeTable extends JFrame implements ActionListener {
 			tools.add(tool[i]);
 		}
 
-		field[0].setText("22"); //19
-		field[1].setText("190"); //461
-		field[2].setText("ear-f-83.stu"); //kfu-s-93.stu
+		field[0].setText("19"); //19 //22
+		field[1].setText("461"); //461 //190
+		field[2].setText("kfu-s-93.stu"); //kfu-s-93.stu //ear-f-83.stu
 		field[3].setText("1");
 	}
 
@@ -75,6 +74,7 @@ public class TimeTable extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent click) {
 		int min, step, clashes;
+
 		switch (getButtonIndex((JButton) click.getSource())) {
 			case 0:
 				int slots = Integer.parseInt(field[0].getText());
@@ -106,52 +106,100 @@ public class TimeTable extends JFrame implements ActionListener {
 			case 3:
 				courses.printSlotStatus();
 				System.out.println();
-//				System.out.println("Exam\tSlot\tClashes");
-//				for (int i = 1; i < courses.length(); i++)
-//					System.out.println(i + "\t" + courses.slot(i) + "\t" + courses.status(i));
+				System.out.println("Exam\tSlot\tClashes");
+				for (int i = 1; i < courses.length(); i++)
+					System.out.println(i + "\t" + courses.slot(i) + "\t" + courses.status(i));
 				break;
 			case 4:
 				System.exit(0);
 			case 5:
-//				Random rand = new Random();
-//				int index = rand.nextInt(Integer.parseInt(field[1].getText()));
-//				int slot = rand.nextInt(Integer.parseInt(field[0].getText()));
-				for (int i = 0; i < 22; i++) {
-					a.fullUpdate(i);
+				min = Integer.MAX_VALUE;
+				step = 0;
+				for (int iteration = 1; iteration <= Integer.parseInt(field[3].getText()); iteration++) {
+					courses.iterate(Integer.parseInt(field[4].getText()));
+					draw();
+					clashes = courses.clashesLeft();
+					if (clashes < min) {
+						min = clashes;
+						step = iteration;
+					}
 				}
-
-				draw();
+				System.out.println("Shift = " + field[4].getText() + "\tMin clashes = " + min + "\tat step " + step);
+				setVisible(true);
+				break;
 			case 6:
-				trainingEAR();
+				trainingKFU();
+//				trainingEAR();
+//				fullUpdateAllSlots();
+//				chainUpdateAllSlots(5);
+//				chainUpdateAllSlots(10);
+//				chainUpdateAllSlots(20);
+
+				a.chainUpdate(8,20);
+				a.chainUpdate(12,20);
+
+//				a.fullUpdate(8);
+//				a.fullUpdate(12);
+
 		}
 
 	}
 
-	public void trainingEAR(){
-		//19-1445, 13-610, 21-842
+	public void fullUpdateAllSlots(){
+		for (int i = 0; i < Integer.parseInt(field[0].getText()); i++)
+			a.fullUpdate(i);
+	}
+
+	public void chainUpdateAllSlots(int steps){
+		for (int i = 0; i < Integer.parseInt(field[0].getText()); i++)
+			a.chainUpdate(i,steps);
+	}
+
+	public void trainingKFU(){
 		if(a == null)
 			a = new Autoassociator(courses);
 
-		if(count == 0) {
-			int[] tr20 = {1, 4, 6, 7, 8, 17, 18, 20, 21};
-			for (int i : tr20)
-				a.training(courses.getTimeSlot(i));
-			count++;
-			a.printWeights(10);
-		}else if(count == 1){
-			int[] tr20 = {2,4,11,13,15,19};
-			for (int i : tr20)
-				a.training(courses.getTimeSlot(i));
-			count++;
-			a.printWeights(10);
-		}else if(count == 2){
-			int[] tr20 = {0,1,5,6,7,8,10,11,12,21};
-			for (int i : tr20)
-				a.training(courses.getTimeSlot(i));
-			count++;
-			a.printWeights(10);
+		for(int i = 0; i < TrainingData2.KFUshifts14.length; i++){
+			a.training(TrainingData2.KFUshifts14[i]);
+		}
+		for(int i = 0; i < TrainingData2.KFUshifts15.length; i++){
+			a.training(TrainingData2.KFUshifts15[i]);
+		}
+		for(int i = 0; i < TrainingData3.KFUshifts16.length; i++){
+			a.training(TrainingData3.KFUshifts16[i]);
+		}
+		for(int i = 0; i < TrainingData3.KFUshifts17.length; i++){
+			a.training(TrainingData3.KFUshifts17[i]);
+		}
+		for(int i = 0; i < TrainingData3.KFUshifts18.length; i++){
+			a.training(TrainingData3.KFUshifts18[i]);
+		}
+		for(int i = 0; i < TrainingData4.KFUshifts10.length; i++){
+			a.training(TrainingData4.KFUshifts10[i]);
+		}
+		for(int i = 0; i < TrainingData4.KFUshifts12.length; i++){
+			a.training(TrainingData4.KFUshifts12[i]);
+		}
+		for(int i = 0; i < TrainingData4.KFUshifts13.length; i++){
+			a.training(TrainingData4.KFUshifts13[i]);
 		}
 	}
+
+	public void trainingEAR(){
+		if(a == null)
+			a = new Autoassociator(courses);
+
+		for(int i = 0; i < TrainingData.EARshifts19.length; i++){
+			a.training(TrainingData.EARshifts19[i]);
+		}
+		for(int i = 0;i < TrainingData.EARshifts13.length;i++){
+			a.training(TrainingData.EARshifts13[i]);
+		}
+		for(int i = 0;i < TrainingData.EARshifts21.length;i++){
+			a.training(TrainingData.EARshifts21[i]);
+		}
+	}
+
 
 	public static void main(String[] args) {
 		new TimeTable();

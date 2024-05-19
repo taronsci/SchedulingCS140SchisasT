@@ -1,8 +1,18 @@
-    File ear-f-83:
+Result File
+IMPORTANT: In class Autoassociator, line 112, change slot number to 22 when working with file "kfu-s-93.stu"
+                                                                    19 when working with file "ear-f-83.stu"
+
+Observation: After training with the data and doing updates, all the changes happen randomly. These changes are from 1 to -1.
+
+
+                                        File "ear-f-83.stu"
+
+/*      Good cases without training     */
 Shift = 13	Min clashes = 28 at step 610
 Shift = 19	Min clashes = 20 at step 1445
 Shift = 21	Min clashes = 30 at step 842
 
+/*      Training info      */
 0.139 * 190 = 26.41 => m = 26
 190 courses
 >9 courses in timeslot, 0-2 clashes
@@ -17,9 +27,52 @@ training slots: 2,4,11,13,15,19 - 6
 Shift = 21	Min clashes = 30	at step 842
 training slots: 0,1,5,6,7,8,10,11,12,21 - 10
 
-After training with this data and doing fullUpdate(), all the changes from 1 to -1 are random.
+The following cases continue from min clashes 20 state (Shift = 19 Min clashes = 20 at step 1445)
 
-    File kfu-s-93:
+    Case1: fullUpdate()
+/*      Results obtained by doing fullUpdateAllSlots(). 2000 iterations.    */
+Shift = 19	Min clashes = 32	at step 256
+Shift = 19	Min clashes = 24	at step 1638
+Shift = 19	Min clashes = 32	at step 838
+
+    Case2: chainUpdate()
+/*      Results obtained by doing chainUpdateAllSlots(5). 2000 iterations.   */
+Shift = 19	Min clashes = 32	at step 472 (1445 iterations)
+Shift = 19	Min clashes = 28	at step 589
+Shift = 19	Min clashes = 28	at step 10
+Shift = 19	Min clashes = 36	at step 109
+
+Shift = 19	Min clashes = 16	at step 94                                         ------SUCCESS------
+/* Log */
+Randomly moved course 125 to slot 5
+Randomly moved course 33 to slot 19
+Randomly moved course 95 to slot 21
+Randomly moved course 109 to slot 14
+
+/*      Results obtained by doing chainUpdateAllSlots(10). 2000 iterations.    */
+Shift = 19	Min clashes = 28	at step 456
+Shift = 19	Min clashes = 38	at step 50
+Shift = 19	Min clashes = 34	at step 1809
+Shift = 19	Min clashes = 40	at step 1162
+
+Shift = 19	Min clashes = 26	at step 398
+/* Log */
+Randomly moved course 166 to slot 19
+Randomly moved course 179 to slot 19
+Randomly moved course 157 to slot 1
+Randomly moved course 6 to slot 21
+Randomly moved course 37 to slot 13
+Randomly moved course 27 to slot 15
+Randomly moved course 137 to slot 21
+Randomly moved course 104 to slot 8
+Randomly moved course 149 to slot 8
+Randomly moved course 175 to slot 4
+
+
+                                        File "kfu-s-93.stu"
+
+
+/*      Good cases without training     */
 Shift = 10	Min clashes = 78	at step 198
 Shift = 12	Min clashes = 62	at step 98
 Shift = 13	Min clashes = 68	at step 1990
@@ -29,6 +82,7 @@ Shift = 17	Min clashes = 42	at step 826
 Shift = 15	Min clashes = 44	at step 1575
 Shift = 14	Min clashes = 26	at step 1192
 
+/*      Training info      */
 0.139 * 461 = 64.079 => m = 64
 461 courses
 >20 courses in timeslot, 0-2 clashes
@@ -56,4 +110,97 @@ training slots: 0,2,3,4,5,6,10,12,14 - 9
 
 Shift = 10	Min clashes = 78	at step 198
 training slots: 1,2,4,10,11 - 5
+
+The following cases continue from min clashes 26 state (Shift = 14	Min clashes = 26	at step 1192)
+
+    Case1: fullUpdate()
+/*      Results obtained by doing fullUpdateAllSlots(). 2000 iterations.    */
+Shift = 14	Min clashes = 54	at step 1372
+Shift = 14	Min clashes = 56	at step 1182
+Shift = 14	Min clashes = 54	at step 893
+
+    Case2: chainUpdate()
+/*      Results obtained by doing chainUpdateAllSlots(5). 2000 iterations.   */
+Shift = 14	Min clashes = 50	at step 1
+Shift = 14	Min clashes = 38	at step 570
+Shift = 14	Min clashes = 42	at step 1318
+
+/*      Results obtained by doing chainUpdateAllSlots(10). 2000 iterations.   */
+Shift = 14	Min clashes = 46	at step 125
+Shift = 14	Min clashes = 36	at step 7
+Shift = 14	Min clashes = 50	at step 59
+Shift = 14	Min clashes = 54	at step 261
+
+Shift = 17	Min clashes = 54	at step 1319
+Shift = 17	Min clashes = 40	at step 1808
+
+Shift = 15	Min clashes = 58	at step 363
+
+/*      Results obtained by doing chainUpdateAllSlots(12). 2000 iterations.   */
+Shift = 14	Min clashes = 48	at step 896
+Shift = 14	Min clashes = 56	at step 506
+
+/*      Results obtained by doing chainUpdateAllSlots(20). 2000 iterations.   */
+Shift = 14	Min clashes = 50	at step 18
+Shift = 14	Min clashes = 62	at step 1058
+Shift = 14	Min clashes = 50	at step 80
+Shift = 14	Min clashes = 48	at step 1354
+
+Shift = 14	Min clashes = 38	at step 1720
+/* Log */
+Randomly moved course 294 to slot 8
+Randomly moved course 389 to slot 1
+Randomly moved course 50 to slot 3
+Randomly moved course 139 to slot 14
+Randomly moved course 245 to slot 13
+Randomly moved course 220 to slot 4
+Randomly moved course 162 to slot 14
+Randomly moved course 191 to slot 2
+Randomly moved course 283 to slot 18
+Randomly moved course 368 to slot 3
+Randomly moved course 184 to slot 9
+Randomly moved course 339 to slot 5
+Randomly moved course 247 to slot 16
+Randomly moved course 454 to slot 4
+Randomly moved course 200 to slot 9
+
+    Case3: chainUpdate()
+/*      Results obtained by doing chainUpdate(8,10) and chainUpdate(12,10). Choice of slots is based on high number of clashes in them. 2000 iterations.   */
+
+Shift = 14	Min clashes = 36	at step 1004
+/* Log */
+Randomly moved course 88 to slot 0
+Randomly moved course 358 to slot 7
+
+Shift = 14	Min clashes = 26	at step 7
+/* Log */
+Randomly moved course 13 to slot 12
+
+Shift = 14	Min clashes = 26	at step 7
+/* Log */
+Randomly moved course 57 to slot 12
+
+Shift = 14	Min clashes = 26	at step 7
+/* Log */
+Randomly moved course 208 to slot 10
+
+/*      Results obtained by doing fullUpdate(8) and fullUpdate(12). Choice of slots is based on high number of clashes in them. 2000 iterations.   */
+Shift = 14	Min clashes = 44	at step 102
+Shift = 14	Min clashes = 42	at step 1497
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
